@@ -1,62 +1,81 @@
 <html>
 <head>
   <!-- Link the style sheet here -->
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/style.css">
+  
 </head>
 <div>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
     <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
+      <h2 style="padding-right: 5%; color: #fff; font-weight:600;">Dealerships</h2>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
+            <a class="nav-link" style="font-size: larger; color:#fff; font-weight:500;" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
+            <a class="nav-link active" style="font-size: larger; color:#00333a; font-weight:600; background:#ffffffaa; border-radius:6px; padding:4px 8px;" href="/about">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
+            <a class="nav-link" style="font-size: larger; color:#fff; font-weight:500;" href="/contact">Contact Us</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
-      <div class="banner" name="about-header">
+    <div class="card" style="width: 80%;margin: auto; margin-top:5%; box-shadow:0 20px 40px rgba(0,0,0,0.12); border-radius:16px; overflow:hidden;">
+      <div class="banner" name="about-header" style="background:#0f172a; color:white; padding:2rem;">
       <!-- Insert header information here -->
-      </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person1</p>
-          <p>Person1 Title</p>
-          <p class="card-text">Some text that explains the person1 in about 2 short sentences</p>
-          <p>person1@example.com</p>
+        <h1 style="font-weight:700; font-size:2rem; margin-bottom:0.75rem;">About Us</h1>
+        <div style="color:#cbd5e1; line-height:1.5rem; font-size:1rem;">
+          Welcome to Best Cars Dealership — a trusted source for quality pre-owned and certified vehicles across North America.
+          For over 15 years, our team has helped customers find reliable cars, SUVs, and trucks at fair prices. We believe in honest pricing,
+          clean history reports, flexible financing, and zero-pressure sales. If we wouldn’t drive it ourselves, we don’t put it on the lot.
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person2</p>
-          <p>Person2 Title</p>
-          <p class="card-text">Some text that explains the person2 in about 2 short sentences</p>
-          <p>person2@example.com</p>
+      <div style="display: flex;flex-direction: row; margin:auto; gap:2%; padding:2rem; background:#ffffff;">
+      <div class="card" style="width: 30%; border-radius:12px; box-shadow:0 16px 32px rgba(0,0,0,0.08); border:1px solid rgba(0,0,0,0.06); overflow:hidden;">
+        <img class="card-img-top" style="height:220px; object-fit:cover;" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80" alt="Card image">
+        <div class="card-body" style="text-align:center;">
+          <p class="title" style="font-size:1.1rem; font-weight:600; color:#0f172a; margin-bottom:0.25rem;">Sarah Thompson</p>
+          <p style="color:#475569; font-weight:500; margin-bottom:0.75rem;">Sales Director</p>
+          <p class="card-text" style="color:#64748b; font-size:0.9rem; line-height:1.4rem; margin-bottom:0.75rem;">
+            Sarah leads our sales team and makes sure every buyer understands their options before signing anything.
+            She’s known for helping first-time buyers and new immigrants get approved with confidence.
+          </p>
+          <p style="color:#0ea5e9; font-size:0.9rem; font-weight:500;">sarah.thompson@bestcars.com</p>
         </div>
       </div>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
-        <div class="card-body">
-          <p class="title">Person3</p>
-          <p>Person3 Title</p>
-          <p class="card-text">Some text that explains the person3 in about 2 short sentences</p>
-          <p>person3@example.com</p>
+      <div class="card" style="width: 30%; border-radius:12px; box-shadow:0 16px 32px rgba(0,0,0,0.08); border:1px solid rgba(0,0,0,0.06); overflow:hidden;">
+        <img class="card-img-top" style="height:220px; object-fit:cover;" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80" alt="Card image">
+        <div class="card-body" style="text-align:center;">
+          <p class="title" style="font-size:1.1rem; font-weight:600; color:#0f172a; margin-bottom:0.25rem;">Daniel Reed</p>
+          <p style="color:#475569; font-weight:500; margin-bottom:0.75rem;">Lead Technician</p>
+          <p class="card-text" style="color:#64748b; font-size:0.9rem; line-height:1.4rem; margin-bottom:0.75rem;">
+            Daniel is ASE-certified and personally inspects every vehicle before it goes on the lot.
+            His rule is simple: the car leaves our garage only if it’s safe enough for his own family.
+          </p>
+          <p style="color:#0ea5e9; font-size:0.9rem; font-weight:500;">daniel.reed@bestcars.com</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 30%; border-radius:12px; box-shadow:0 16px 32px rgba(0,0,0,0.08); border:1px solid rgba(0,0,0,0.06); overflow:hidden;">
+        <img class="card-img-top" style="height:220px; object-fit:cover;" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80" alt="Card image">
+        <div class="card-body" style="text-align:center;">
+          <p class="title" style="font-size:1.1rem; font-weight:600; color:#0f172a; margin-bottom:0.25rem;">Alicia Martinez</p>
+          <p style="color:#475569; font-weight:500; margin-bottom:0.75rem;">Customer Care Manager</p>
+          <p class="card-text" style="color:#64748b; font-size:0.9rem; line-height:1.4rem; margin-bottom:0.75rem;">
+            Alicia is your point of contact after you drive home. Warranty questions, service reminders,
+            trade-in advice — she makes sure you’re taken care of long-term.
+          </p>
+          <p style="color:#0ea5e9; font-size:0.9rem; font-weight:500;">alicia.martinez@bestcars.com</p>
         </div>
       </div>
     </div>
