@@ -1,4 +1,5 @@
-"""djangoproj URL Configuration
+"""
+djangoproj URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -20,11 +21,18 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    # Admin route
     path('admin/', admin.site.urls),
+
+    # Static HTML pages (frontend)
     path('about/', TemplateView.as_view(template_name="About.html")),
-    path('djangoapp/', include('djangoapp.urls')),
     path('contact/', TemplateView.as_view(template_name="Contact.html")),
-    path('', TemplateView.as_view(template_name="Home.html")),
     path('login/', TemplateView.as_view(template_name="index.html")),
     path('register/', TemplateView.as_view(template_name="index.html")),
+
+    # ✅ Mount djangoapp routes under /djangoapp/
+    path('djangoapp/', include('djangoapp.urls')),
+
+    # Default homepage fallback
+    path('', TemplateView.as_view(template_name="Home.html")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

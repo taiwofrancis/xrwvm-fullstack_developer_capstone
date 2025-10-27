@@ -5,6 +5,10 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.decorators.csrf import csrf_exempt
 import logging, json
 
+# 👉 NEW IMPORTS FOR CARS:
+from .models import CarMake, CarModel
+from .populate import initiate
+
 logger = logging.getLogger(__name__)
 
 # LOGIN
@@ -123,3 +127,27 @@ def add_review(request, dealer_id):
         "dealer_id": dealer_id,
         "message": "Add review placeholder"
     })
+
+
+# ✅ THE MISSING VIEW: get_cars
+def get_cars(request):
+    """
+    Returns a JSON list of all car models and their make.
+    If the DB is empty, auto-populate it first.
+    """
+    # Check if we already have data
+    if CarMake.objects.count() == 0:
+        # Seed the database with default car makes/models
+        initiate()
+
+    # Query all car models + the related make in one shot
+    car_models = CarModel.objects.select_related('car_make')
+
+    cars = []
+    for car_model in car_models:
+        cars.append({
+            "CarModel": car_model.name,
+            "CarMake": car_model.car_make.name,
+        })
+
+    return JsonResponse({"CarModels": cars})

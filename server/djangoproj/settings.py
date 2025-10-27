@@ -16,23 +16,35 @@ SECRET_KEY = 'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Allowed hosts and CSRF origins
+# ---------------------------------------------------------------------
+# ✅ Allowed hosts and CSRF trusted origins (add both domains)
+# ---------------------------------------------------------------------
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+
+    # your current live Skills Network domain from error logs
+    'oguntadetaiw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
+
+    # your previous Skills Network domain (keep it too, safe to include)
     'oguntadetaiw-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://oguntadetaiw-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai'
+    'https://oguntadetaiw-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai',
+    'https://oguntadetaiw-8000.theianext-1-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai',
 ]
 
+# ---------------------------------------------------------------------
 # REST framework configuration
+# ---------------------------------------------------------------------
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
 }
 
+# ---------------------------------------------------------------------
 # Application definition
+# ---------------------------------------------------------------------
 INSTALLED_APPS = [
     'djangoapp.apps.DjangoappConfig',
     'django.contrib.admin',
@@ -54,14 +66,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'djangoproj.urls'
 
-# Template configuration – includes frontend static & React build folders
+# ---------------------------------------------------------------------
+# Templates – include your frontend static & React build folders
+# ---------------------------------------------------------------------
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'frontend/static'),       # HTML pages (Home.html, About.html, Contact.html)
-            os.path.join(BASE_DIR, 'frontend/build'),        # React index.html
-            os.path.join(BASE_DIR, 'frontend/build/static'), # React build static assets
+            os.path.join(BASE_DIR, 'frontend/static'),
+            os.path.join(BASE_DIR, 'frontend/build'),
+            os.path.join(BASE_DIR, 'frontend/build/static'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -77,7 +91,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoproj.wsgi.application'
 
-# Database configuration
+# ---------------------------------------------------------------------
+# Database configuration (SQLite)
+# ---------------------------------------------------------------------
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -85,30 +101,28 @@ DATABASES = {
     }
 }
 
+# ---------------------------------------------------------------------
 # Password validation
+# ---------------------------------------------------------------------
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+# ---------------------------------------------------------------------
 # Internationalization
+# ---------------------------------------------------------------------
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# ---------------------------------------------------------------------
 # Static and media files
+# ---------------------------------------------------------------------
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
@@ -116,7 +130,9 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# ---------------------------------------------------------------------
 # Static directories for Django to serve files in DEBUG mode
+# ---------------------------------------------------------------------
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/static'),
     os.path.join(BASE_DIR, 'frontend/build'),
